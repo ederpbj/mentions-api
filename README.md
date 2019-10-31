@@ -27,7 +27,7 @@ API COM NODE.JS
 
 ## Conectando ao MongoDB Atlas
 
-    Acesse o site (mongodb.com/cloud)
+Acesse o site [mongodb.com/cloud](mongodb.com/cloud)
 
 > Procure pelo botão New Project e pode dar o nome de: 
 
