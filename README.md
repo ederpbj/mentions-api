@@ -125,29 +125,31 @@ Quando acessamos a rota de listagem em nossa API, ela retorna dados que não est
         "__v": 0
     
 ]
+
 Também não estamos validando o tipo de entrada quando criamos uma menção, o que possibilitaria que alguém enviasse uma mensagem como essa:
 
 {
 	"friend": "!",
 	"mention": "!"
 }
+
 Não queremos que isso seja possível.
 
 Outro ponto importante: temos nosso acesso ao model inteiro via controller, se nossa regra de negócio aumentar, esses trechos de código irão ficar com uma responsabilidade muito grande, além de espalhar a chamada ao model em vários locais. Seria legal utilizarmos algum padrão de projeto para organizar essas chamadas e armazenar a nossa lógica de negócios em um único local que pode ser importado por outros controllers, como o repository pattern.
 
 Vamos aos trabalhos!
 
-Retornando somente os dados que desejamos exibir
-Melhorando nossa organização de código com repository pattern
-Validando entradas de dados
-Conclusão
-Referências
-Imagem de copas de árvores
+* Retornando somente os dados que desejamos exibir
+* Melhorando nossa organização de código com repository pattern
+* Validando entradas de dados
+* Conclusão
+* Referências
+* Imagem de copas de árvores
 
 Retornando somente os dados que desejamos exibir
-Para limpar o retorno da nossa API, na chamada do método listMentions, vamos melhorar a nossa utilização do método find() do nosso Model. Ao invés de executarmos Mentions.find() somente com um objeto vazio, vamos parametrizar essa chamada.
+Para limpar o retorno da nossa API, na chamada do método **listMentions**, vamos melhorar a nossa utilização do método **find()** do nosso Model. Ao invés de executarmos **Mentions.find()** somente com um objeto vazio, vamos parametrizar essa chamada.
 
-Nós temos somente dois campos que desejamos recuperar do banco de dados que são friend e mention. Então vamos alterar o arquivo mentions-controller.js e adicionar a seguinte string logo depois do objeto que vem dentro de find: “friend mention”.
+Nós temos somente dois campos que desejamos recuperar do banco de dados que são friend e mention. Então vamos alterar o arquivo **mentions-controller.js** e adicionar a seguinte string logo depois do objeto que vem dentro de find: “friend mention”.
 
 O código ficará assim:
 
@@ -159,6 +161,7 @@ exports.listMentions = async (req, res) => {
     res.status(500).send({message: 'Falha ao carregar as menções!'});
   
 };
+
 Agora, ao executar a nossa chamada GET a rota localhost:3000/mentions no Postman, o retorno será algo parecido com:
 
 [
@@ -173,6 +176,7 @@ Agora, ao executar a nossa chamada GET a rota localhost:3000/mentions no Postman
         "mention": "Prefiro me arriscar no mar alto do que ficar aqui e morrer nesta ilha de merda, falando o resto da minha vida com a droga de uma bola de vôlei!"
     
 ]
+
 Mas o _id ainda está ali. Precisamos remover este valor também. Na nossa string de seleção, podemos dizer que não desejamos um valor utilizando o -. Então basta colocar -_id na chamada.
 
 exports.listMentions = async (req, res) => {
@@ -183,6 +187,7 @@ exports.listMentions = async (req, res) => {
     res.status(500).send({message: 'Falha ao carregar as menções!'});
   
 };
+
 Pronto! Agora nosso retorno está OK.
 
 [
@@ -195,6 +200,7 @@ Pronto! Agora nosso retorno está OK.
         "mention": "Prefiro me arriscar no mar alto do que ficar aqui e morrer nesta ilha de merda, falando o resto da minha vida com a droga de uma bola de vôlei!"
     
 ]
+
 Melhorando nossa organização de código com repository pattern
 Vamos mover as chamadas a nosso Model em um local centralizador da regra de negócio, o repository. Dentro de src crie uma pasta chamada repositories e dentro dessa pasta crie o arquivo mentions-repository.js. Neste arquivo adicione o seguinte conteúdo:
 
@@ -210,6 +216,7 @@ exports.createMention = async data => {
   const mention = new Mentions(data);
   await mention.save();
 };
+
 Perceba que só movemos a camada de manipulação de dados do controller para o repository. Agora vamos ao nosso controller (src/controllers/mentions-controller.js) alterar como chamamos a camada de dados. Altere as linhas de código para o seguinte conteúdo:
 
 const repository = require('../repositories/mentions-repository');
@@ -236,18 +243,21 @@ exports.createMention = async (req, res) => {
     res.status(500).send({message: 'Falha ao cadastrar a menção.'});
   
 };
+
 Nós importamos o repository:
 
 const repository = require('../repositories/mentions-repository');
 As chamadas de dados agora são com repository.metodo():
 
 const data = await repository.listMentions();
+
 E:
 
     await repository.createMention({
       friend: req.body.friend,
       mention: req.body.mention
     });
+
 Não mudou muita coisa, não é? Somente a maneira como vamos utilizar a camada de dados que agora fica mais organizada. Se algum dia precisarmos modificar algo na nossa regra de negócios, vamos direto ao nosso repository e não a todos os controllers que chamam nosso model.
 
 Validando entradas de dados
@@ -259,7 +269,8 @@ Vamos implementar essas validações.
 
 Para que não precisemos criar várias funções de validações diferentes, podemos utilizar uma lib chamada express-validator. Instale o express-validator com o comando:
 
-npm install --save express-validator
+  npm install --save express-validator
+
 Mas existe algo que precisa vir antes de começarmos a manipular as entradas: cuidar para que os dados que estão entrando em nossa API via POST sejam realmente um json ou um tipo de dado que esperamos via body do HTTP, utilizaremos a função express.json, junto com a express.urlencoded.
 
 Adicione no seu app.js:
@@ -306,6 +317,7 @@ exports.createMention = async (req, res) => {
     return res.status(500).send({message: 'Falha ao cadastrar a menção.'});
   
 };
+
 Estamos recuperando o array errors de dentro da requisição, que foi adicionado pelo check(), caso o usuário tenha cometido um engano.
 
 const {errors} = validationResult(req);
