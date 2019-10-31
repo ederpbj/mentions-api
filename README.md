@@ -5,7 +5,7 @@ API COM NODE.JS
 
 ## Site tutorial
 
-    https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-1-criando-e-listando-dados/
+[construindo-uma-api-com-node-js-parte-1](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-1-criando-e-listando-dados/)
 
 > Iniciando projeto 
 
@@ -51,6 +51,15 @@ a porta pela qual temos acesso a API do banco
 usuário e senha para acesso ao banco
 No nosso cluster temos todas essas informações, mas, antes de qualquer coisa, precisamos criar um usuário com poderes leitura e escrita no banco. Procure pelo item Database Access no menu do cluster (estará ao lado esquerdo da tela) e em seguida clique em add new user.
 ```
+
+A lib dotenv será responsável por ler o arquivo .env que vamos criar em breve (e que não deve ser enviado para o GitHub) e carregar as nossas variáveis de ambiente, que vamos criar já já.
+
+Para conectar a um banco de dados precisamos de algumas informações, como:
+
+endereço de IP ou domínio do servidor do banco de dados
+a porta pela qual temos acesso a API do banco
+usuário e senha para acesso ao banco
+No nosso cluster temos todas essas informações, mas, antes de qualquer coisa, precisamos criar um usuário com poderes leitura e escrita no banco. Procure pelo item Database Access no menu do cluster (estará ao lado esquerdo da tela) e em seguida clique em add new user.
 
 > Colar a chave no **.env** na raiz do projeto
 
