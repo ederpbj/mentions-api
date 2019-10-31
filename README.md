@@ -61,3 +61,51 @@ voltar na tela de clusters (clicando em Clusters, na esquerda) e vamos pegar a c
 Com isso temos a nossa aplicação Express conectada com o MongoDB em um cluster na nuvem (cloud) nos servidores da Amazon AWS (ou no que você escolheu como provedor) via Atlas Cloud.
 
 ## Modelando nosso banco de dados
+
+> Crie a pasta models dentro da pasta src e depois crie o arquivo mentions.js
+
+### Criando os métodos de criar e listar dados do banco
+
+Agora podemos partir para a criação dos métodos que irão criar e listar os dados do banco de dados. Para isso crie uma pasta controllers dentro de src e crie o arquivo mentions-controller.js
+
+### Códigos de status HTTP
+
+Trabalhando com a internet, por baixo dos panos, nós trocamos mensagens entre servidor e navegador, entre servidor e servidor e entre servidor e outros dispositivos. Dentro dessas mensagens existe algo chamado status code. Esse status code diz o que aconteceu em nosso servidor, como:
+
+* 200: tudo OK
+* 201: criado
+* 400: sua requisição tem algum problema
+* 404: o conteúdo que você pediu não foi encontrado
+* 500: deu um problema no nosso servidor
+* 503: serviço inoperante
+Existem muitos status codes. Eles existem para facilitar a comunicação via rede e por isso precisam que ser bem amplos. Na documentação da Mozilla você tem mais status codes, MDN - HTTP/status, mas o que precisa para agora são esses que informei.
+
+### Async/Await
+
+Async/await é uma maneira de trabalhar com programação assíncrona em JavaScript. Algo assíncrono pode ser uma função, comunicação ou qualquer execução de código que vai demorar um tempo e precisamos esperar isso acontecer para enfim voltar a trabalhar/executar o resto do código. Para que o processamento não fique travado nesse pedaço de código, como no nosso caso que é uma chamada ao banco de dados e isso pode demorar, nós utilizamos o modo async para dizer: Express, espere o banco de dados retornar e depois você pode continuar aqui, enquanto isso pode ir fazer qualquer coisa que ainda tiver que fazer.
+
+Poderia ser qualquer coisa, como escrever em disco (gravar um arquivo), esperar um cronômetro, aguardar uma chamada para outra API. Para tudo o que for necessário esperar um processamento, podemos utilizar async/await.
+
+### Testar com postman
+
+[postman](getpostman.com/downloads)
+
+Clique no botão de mais (+) e ele irá abrir uma caixa onde você pode inserir um endereço e enviar (clicando em Send). Se a sua API ainda estiver de pé (se você não matou o nosso servidor que roda no npm run dev) adicione o endereço inicial (localhost:3000) e clique em send. Você receberá a resposta como aconteceu no navegador.
+
+Do lado do endereço podemos especificar o verbo HTTP (GET, POST, DELETE, etc) que estamos enviando para o servidor e assim vamos ter as respostas que adicionamos em app.get e app.post no Express.
+
+Faça um GET em mentions (localhost:3000/mentions) e veja o resultado:
+
+Agora vamos fazer um POST e criar nossa primeira menção. Mude o verbo para POST, no campo do lado da URL. Deixe a URL como mentions mesmo, pois é a que adicionamos em nossa routes. Logo abaixo da URL temos algumas abas, clique em Body, depois selecione raw e em seguida selecione JSON (application/json). Cole o seguinte conteúdo dentro da caixa de texto do Postman:
+
+{
+	"friend": "Seu Madruga",
+	"mention": "A vingança nunca é plena, mata a alma e a envenena"
+}
+
+### Conclusão
+
+Até aqui temos uma API recebendo requisições e retornando informações. Criamos toda a estrutura de código necessária para trabalharmos em cima disso com Node.js, Express, MongoDB e mongoose. Incluímos variáveis de ambiente para garantir uma certa segurança em nossa aplicação, criamos uma conta e um cluster no Atlas, para guardar nossos dados e já estamos listando e criando dados nas coleções do MongoDB via Postman.
+
+## CONSTRUINDO UMA API COM NODE.JS - PARTE 2: MELHORANDO NOSSA CRIAÇÃO E LISTAGEM DE DADOS
+
