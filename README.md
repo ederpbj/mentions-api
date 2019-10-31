@@ -27,7 +27,7 @@ API COM NODE.JS
 
 ## Conectando ao MongoDB Atlas
 
-Acesse o site [mongodb.com/cloud](mongodb.com/cloud)
+Acesse o site [mongodb.com/cloud](https://cloud.mongodb.com/)
 
 > Procure pelo botão New Project e pode dar o nome de: 
 
@@ -58,3 +58,6 @@ No nosso cluster temos todas essas informações, mas, antes de qualquer coisa, 
 
 voltar na tela de clusters (clicando em Clusters, na esquerda) e vamos pegar a connection string, a linha de texto de configuração do nosso banco de dados. Clique em connect.
 
+Com isso temos a nossa aplicação Express conectada com o MongoDB em um cluster na nuvem (cloud) nos servidores da Amazon AWS (ou no que você escolheu como provedor) via Atlas Cloud.
+
+## Modelando nosso banco de dados
