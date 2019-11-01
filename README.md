@@ -119,3 +119,4 @@ Até aqui temos uma API recebendo requisições e retornando informações. Cria
 
 [Parte III](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-3-atualizando-e-deletando-dados/)
 
+### [Conectar Atlas mongo ao Studio 3T](https://studio3t.com/knowledge-base/articles/connect-to-mongodb-atlas/)
