@@ -107,10 +107,15 @@ Agora vamos fazer um POST e criar nossa primeira menção. Mude o verbo para POS
 
 Até aqui temos uma API recebendo requisições e retornando informações. Criamos toda a estrutura de código necessária para trabalharmos em cima disso com Node.js, Express, MongoDB e mongoose. Incluímos variáveis de ambiente para garantir uma certa segurança em nossa aplicação, criamos uma conta e um cluster no Atlas, para guardar nossos dados e já estamos listando e criando dados nas coleções do MongoDB via Postman.
 
-## [CONSTRUINDO UMA API COM NODE.JS - PARTE 2: MELHORANDO NOSSA CRIAÇÃO E LISTAGEM DE DADOS]
+### [CONSTRUINDO UMA API COM NODE.JS - PARTE 2: MELHORANDO NOSSA CRIAÇÃO E LISTAGEM DE DADOS]
 
 [Parte II](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-2-melhorando-nossa-cria%C3%A7%C3%A3o-e-listagem-de-dados/)
 
 > Instalar validator
 
   npm install --save express-validator
+
+### CONSTRUINDO UMA API COM NODE.JS - PARTE 3: ATUALIZANDO E DELETANDO DADOS
+
+[Parte III](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-3-atualizando-e-deletando-dados/)
+
