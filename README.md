@@ -116,3 +116,18 @@ Até aqui temos uma API recebendo requisições e retornando informações. Cria
 ### [CONSTRUINDO UMA API COM NODE.JS - PARTE 3: ATUALIZANDO E DELETANDO DADOS](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-3-atualizando-e-deletando-dados/)
 
 ### [Conectar Atlas mongo ao Studio 3T](https://studio3t.com/knowledge-base/articles/connect-to-mongodb-atlas/)
+
+conectar com 3T
+
+From URI
+
+  mongodb+srv://<username>:<password>@cluster0-wvrbx.mongodb.net/test?retryWrites=true&w=majority
+
+Sequencia de execução: 
+
+  repository -> controllers -> routes
+
+  ### Criando a função de delete
+
+  //Testando o delete no Postman
+

@@ -64,6 +64,8 @@ exports.listMentions = async (req, res) => {
   }
 }; */
 
+console.log("P2");
+
 //T2
 // create
 exports.createMention = async (req, res) => {
@@ -80,7 +82,9 @@ Se errors possuir algum valor, significa que precisamos tratar isso.
   if(errors.length > 0) {
     return res.status(400).send({message: errors})
   }
-
+  
+  
+  
   try {
     await repository.createMention({
       friend: req.body.friend,
@@ -91,3 +95,36 @@ Se errors possuir algum valor, significa que precisamos tratar isso.
     return res.status(500).send({message: 'Falha ao cadastrar a menção.'});
   }
 };
+
+//Update, atualizar mentions
+exports.updateMention = async (req, res) => {
+  //Validação de erros
+  const{erros} = validationResult(req);
+  if(erros.length > 0){
+    return res.status(400).send({message: erros})
+  }
+
+  try {
+    await repository.updateMention(req.params.id, req.body);
+    res.status(200).send({
+      message: 'Menção atualizada com sucesso!'
+    });
+  } catch (e) {
+    res.status(500).send({message: 'Falha ao atualizar a menção.'});
+  }
+};
+
+//Importando a função de delete do repository
+exports.deleteMention = async (req, res) => {
+  try {
+    await repository.deleteMention(req.params.id);
+    res.status(200).send({
+      message: 'Menção removida com sucesso!'
+    });
+  } catch (e) {
+    res.status(500).send({message: 'Falha ao remover a menção.'});
+  }
+};
+
+//Adicionando uma rota para deleção
+router.delete('/:id', mentionsController.deleteMention);

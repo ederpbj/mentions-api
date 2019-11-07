@@ -9,10 +9,12 @@ const { check } = require('express-validator');
 
 router.get('/', mentionsController.listMentions);
 
-router.post('/', [
+
+
+router.post('/' , [
     check('friend').isLength({ min: 4 }).withMessage("O nome precisa ter no mínimo 4 caracteres."),
-    check('mention').isLength({ min: 20, max: 280 }).withMessage("A menção precisa ter no mínimo 20 caracteres e no máximo 280.")
-], mentionsController.createMention);
+    check('mention').isLength({ min: 10, max: 280 }).withMessage("A menção precisa ter no mínimo 10 caracteres e no máximo 280.")
+], mentionsController.createMention); 
 
 //<T2
 
@@ -22,6 +24,7 @@ usuário tenha cometido um engano */
 const { validationResult } = require('express-validator');
 const repository = require('../repositories/mentions-repository');
 
+console.log("P3");
 // create
 exports.createMention = async (req, res) => {
   const {errors} = validationResult(req);
@@ -41,6 +44,12 @@ exports.createMention = async (req, res) => {
   }
 };
 
-
+//Atualizar mention
+//router.put('/:id', mentionsController.updateMention);
+//Incluindo validação:
+router.put('/:id', [
+  check('friend').optional().isLength({ min: 4 }).withMessage("O nome precisa ter no mínimo 4 caracteres."),
+  check('mention').optional().isLength({ min: 10, max: 280 }).withMessage("A menção precisa ter no mínimo 10 caracteres e no máximo 280.")
+], mentionsController.updateMention);
 
 module.exports = router;
