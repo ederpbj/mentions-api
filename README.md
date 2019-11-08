@@ -203,3 +203,51 @@ mongodb community
 * mongo
 * mongod (no cmd testar path)
 
+> Enviar aplicação para google cloud
+
+https://www.youtube.com/watch?v=fAUT1-MuxKc
+
+>Comando iniciais
+
+	curl https://sdk.cloud.google.com | bash
+
+	source ~/.bashrc
+
+	which gcloud
+
+	gcloud
+
+> Cria no projete
+
+	app.yamn
+
+> no arquivo app.yamn
+
+	runtime: node.js
+	env: flex
+
+> Testar
+
+	npm start
+
+> Logar no gcloud
+
+	gcloud auth login
+
+	gcloud app deploy
+
+	gcloud init
+
+> Escolher nome do projeto
+
+	gcloud app deploy
+
+> Escolher localidade
+
+> Ver no browser
+
+	gcloud app browse
+
+> Correção de erros
+
+	mudar porta para 8080
