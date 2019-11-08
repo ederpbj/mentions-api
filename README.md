@@ -145,3 +145,8 @@ Sequencia de execução:
 * Fazendo deploy no Google Cloud
 * Conclusão
 
+> Comandos no cmd
+
+    cd D:\01 Dev\01 Projetos\node\mentions-api
+    gcloud app deploy
+    gcloud app browse
