@@ -147,20 +147,21 @@ Sequencia de execução:
 
 > Passos para projeto
 
-    Acesse o seguinte link para criar o projeto: 
-    [criação de projeto no GCP](https://console.cloud.google.com/projectcreate)
+Acesse o seguinte link para criar o projeto: 
+[criação de projeto no GCP](https://console.cloud.google.com/projectcreate)
 
-    Ative o App Engine para Node.js utilizando este link: 
-    [ativar o App Engine usando Node.js](https://console.cloud.google.com/appengine/create?lang=nodejs&st=true)
 
-    Instale o Google Cloud SDK através do link: 
-    [GCP SDK](https://cloud.google.com/sdk/docs/)
+Ative o App Engine para Node.js utilizando este link: 
+[ativar o App Engine usando Node.js](https://console.cloud.google.com/appengine/create?lang=nodejs&st=true)
 
-    Ativando o Google Cloud Build API
-    [GCP Build API](https://console.developers.google.com/apis/library/cloudbuild.googleapis.com)
+Instale o Google Cloud SDK através do link: 
+[GCP SDK](https://cloud.google.com/sdk/docs/)
 
-    Crie o arquivo app.yaml e adicione o seguinte conteúdo:
-    runtime: nodejs10
+Ativando o Google Cloud Build API
+[GCP Build API](https://console.developers.google.com/apis/library/cloudbuild.googleapis.com)
+
+Crie o arquivo app.yaml e adicione o seguinte conteúdo:
+runtime: nodejs10
 
 > Comandos no cmd
 {
