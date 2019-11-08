@@ -131,3 +131,15 @@ Sequencia de execução:
 
   //Testando o delete no Postman
 
+## PARTE 4: SUBINDO UMA API NODEJS NO GOOGLE CLOUD
+
+* Google Cloud Platform (GCP)
+- Poderíamos ter utilizado Amazon AWS, Microsoft Azure, Digital Ocean ou Heroku
+
+* Criando um projeto no Google Cloud
+* Ativando o App Engine
+* Instalando o Google Cloud SDK
+* Ativando o Google Cloud Build API
+* Fazendo deploy no Google Cloud
+* Conclusão
+

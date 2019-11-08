@@ -6,10 +6,18 @@ const Mentions = mongoose.model('Mentions');
 //Listar
 exports.listMentions = async () => {
   const res = await Mentions.find({}, 'friend mention -_id');
+  //console.log("Passou no list Principal")
   return res;
 };
 
-console.log("P1");
+//E1: Exibir mention
+exports.exibeMentions = async (id) => {
+  //const res = await Mentions.findById({id}, 'friend mention -_id');
+  const res = await Mentions.findById(id, 'friend mention -_id')
+  return res;
+};
+
+//console.log("P1");
 
 //Criar mentions
 exports.createMention = async data => {
@@ -29,3 +37,4 @@ exports.updateMention = async (id, data) => {
 exports.deleteMention = async id => {
   await Mentions.findOneAndRemove(id);
 };
+
