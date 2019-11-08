@@ -181,3 +181,25 @@ runtime: nodejs10
     cd D:\01 Dev\01 Projetos\node\mentions-api
     gcloud app deploy
     gcloud app browse
+
+
+gcloud info
+
+> Configurando servidor windows no google cloud
+
+    * iis provides server to the windows
+    * click on add roles and features
+        * select iis here (web iis server)
+        * net framework
+        * http redirection
+
+> Configurar e instalar mongodb no windows server
+
+instalar nodejs
+mongodb community
+
+* node -v 
+* npm -v
+* mongo
+* mongod (no cmd testar path)
+
