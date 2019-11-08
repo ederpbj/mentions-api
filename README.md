@@ -133,6 +133,8 @@ Sequencia de execução:
 
 ## PARTE 4: SUBINDO UMA API NODEJS NO GOOGLE CLOUD
 
+[Parte 4](https://woliveiras.com.br/posts/construindo-uma-api-com-nodejs-parte-4-subindo-uma-api-nodejs-no-google-cloud/#GoogleCloudPlatformGCP)
+
 * Google Cloud Platform (GCP)
 - Poderíamos ter utilizado Amazon AWS, Microsoft Azure, Digital Ocean ou Heroku
 
