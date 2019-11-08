@@ -145,7 +145,37 @@ Sequencia de execução:
 * Fazendo deploy no Google Cloud
 * Conclusão
 
+> Passos para projeto
+
+    Acesse o seguinte link para criar o projeto: 
+    [criação de projeto no GCP](https://console.cloud.google.com/projectcreate)
+
+    Ative o App Engine para Node.js utilizando este link: 
+    [ativar o App Engine usando Node.js](https://console.cloud.google.com/appengine/create?lang=nodejs&st=true)
+
+    Instale o Google Cloud SDK através do link: 
+    [GCP SDK](https://cloud.google.com/sdk/docs/)
+
+    Ativando o Google Cloud Build API
+    [GCP Build API](https://console.developers.google.com/apis/library/cloudbuild.googleapis.com)
+
+    Crie o arquivo app.yaml e adicione o seguinte conteúdo:
+    runtime: nodejs10
+
 > Comandos no cmd
+{
+    Não usados
+
+    Para fazer login, execute:
+
+        gcloud auth login
+
+    Agora execute o comando abaixo, mudando de PROJECT_ID para o ID que você copiou:
+
+        gcloud config set project PROJECT_ID
+}
+
+> Comandos finais
 
     cd D:\01 Dev\01 Projetos\node\mentions-api
     gcloud app deploy
