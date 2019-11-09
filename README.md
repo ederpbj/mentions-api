@@ -217,14 +217,13 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 	gcloud
 
-> Cria no projete
+> Cria no projeto
 
 	app.yamn
 
 > no arquivo app.yamn
 
-	runtime: node.js
-	env: flex
+	runtime: nodejs10
 
 > Testar
 
