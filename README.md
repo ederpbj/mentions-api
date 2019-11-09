@@ -214,7 +214,7 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 	source ~/.bashrc
 
 
-    P1:	which gcloud
+    which gcloud
 
 	gcloud
 
@@ -232,13 +232,13 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 > Logar no gcloud
 
-	P2: gcloud auth login
+	P1: gcloud auth login
 
     gcloud config set project PROJECT_ID
 
-    P3: gcloud config set project api-devstagran-1010
+    P2: gcloud config set project api-devstagran-1010
 
-	P4: gcloud app deploy
+	P3: gcloud app deploy
 
 	gcloud init
 
@@ -250,8 +250,18 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 > Ver no browser
 
-	P5: gcloud app browse
+	P4: gcloud app browse
 
 > Correção de erros
 
 	mudar porta para 8080
+
+> Comando gcloud para deploy
+
+	P1: gcloud auth login
+
+    P2: gcloud config set project api-devstagran-1010
+
+	P3: gcloud app deploy
+
+	P4: gcloud app browse
