@@ -213,7 +213,8 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 	source ~/.bashrc
 
-	which gcloud
+
+    P1:	which gcloud
 
 	gcloud
 
@@ -231,9 +232,13 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 > Logar no gcloud
 
-	gcloud auth login
+	P2: gcloud auth login
 
-	gcloud app deploy
+    gcloud config set project PROJECT_ID
+
+    P3: gcloud config set project api-devstagran-1010
+
+	P4: gcloud app deploy
 
 	gcloud init
 
@@ -245,7 +250,7 @@ https://www.youtube.com/watch?v=fAUT1-MuxKc
 
 > Ver no browser
 
-	gcloud app browse
+	P5: gcloud app browse
 
 > Correção de erros
 
