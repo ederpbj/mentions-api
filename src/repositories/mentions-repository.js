@@ -35,6 +35,8 @@ exports.updateMention = async (id, data) => {
 //Criando a função de delete
 //Delete, função propria para excluir
 exports.deleteMention = async id => {
-  await Mentions.findOneAndRemove(id);
+  console.log(id)
+  await Mentions.findOneAndDelete({"_id":id});
+  //await Mentions.findOneAndRemove(id); // Deprected
 };
 
